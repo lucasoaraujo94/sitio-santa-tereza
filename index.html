@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sítio Santa Tereza | À venda</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f5f2ed;
+      color: #3a3a3a;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(34, 48, 36, 0.85);
+      backdrop-filter: blur(6px);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f0e6d6;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8b08a;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slider {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 1.2s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+    }
+
+    .zoom-in { animation: zoomIn 8s linear infinite; }
+    .zoom-out { animation: zoomOut 8s linear infinite; }
+
+    @keyframes zoomIn {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
+    }
+
+    @keyframes zoomOut {
+      from { transform: scale(1.15); }
+      to { transform: scale(1); }
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      pointer-events: none;
+    }
+
+    .overlay h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: #f0e6d6;
+      margin-bottom: 5px;
+    }
+
+    .overlay span {
+      font-size: 16px;
+      letter-spacing: 2px;
+      color: #e6ddcf;
+      margin-bottom: 25px;
+      text-transform: uppercase;
+    }
+
+    .overlay a {
+      pointer-events: auto;
+      background-color: #28A745;
+      color: #FFFFFF;
+      padding: 12px 28px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .overlay a:hover {
+      background-color: #218838;
+      transform: scale(1.05);
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 40px;
+      color: #f0e6d6;
+      cursor: pointer;
+      z-index: 10;
+      padding: 10px;
+      background: rgba(0,0,0,0.25);
+      border-radius: 50%;
+      user-select: none;
+      transition: background 0.3s;
+    }
+
+    .arrow:hover {
+      background: rgba(0,0,0,0.5);
+    }
+
+    .arrow.left { left: 20px; }
+    .arrow.right { right: 20px; }
+
+    .dots {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: rgba(240, 230, 214, 0.5);
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .dot.active {
+      background: #f0e6d6;
+      transform: scale(1.4);
+    }
+
+    footer {
+      background-color: #223024;
+      color: #e6ddcf;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 64px;
+      height: 64px;
+      background: #2AB318;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      z-index: 9999;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    .whatsapp-float img {
+      width: 34px;
+      height: 34px;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-6px) scale(1.05);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
+      filter: brightness(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .overlay h2 { font-size: 34px; }
+      nav a { margin-left: 12px; font-size: 13px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="terreno.html">Terreno</a>
+      <a href="casa.html">Casa</a>
+      <a href="animais.html">Animais</a>
+      <a href="como-chegar.html">Localização</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="slider">
+      <div class="slide active zoom-out" style="background-image: url('1.jpg');"></div>
+      <div class="slide zoom-in" style="background-image: url('2.jpg');"></div>
+      <div class="slide zoom-out" style="background-image: url('3.jpg');"></div>
+      <div class="slide zoom-in" style="background-image: url('4.jpg');"></div>
+      <div class="slide zoom-out" style="background-image: url('5.jpg');"></div>
+    </div>
+
+    <div class="overlay">
+      <h2>Sítio Santa Tereza</h2>
+      <span>Viçosa - MG</span>
+      <a href="contato.html">À venda</a>
+    </div>
+
+    <div class="arrow left" id="prev">&#10094;</div>
+    <div class="arrow right" id="next">&#10095;</div>
+
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <footer>
+    © 2026 — Sítio Santa Tereza. Todos os direitos reservados.
+  </footer>
+
+  <a 
+    href="https://wa.me/5532984183077?text=Ol%C3%A1.%20Estou%20interessado%20em%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20S%C3%ADtio%20Santa%20Tereza"
+    class="whatsapp-float"
+    target="_blank"
+    aria-label="Falar no WhatsApp"
+  >
+    <img src="whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.getElementById('dots');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    let currentSlide = 0;
+    let autoPlay = true;
+    let interval = setInterval(nextSlide, 5000);
+
+    slides.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(index, true));
+      dotsContainer.appendChild(dot);
+    });
+
+    function updateSlides() {
+      slides.forEach((slide, index) => {
+        slide.classList.toggle('active', index === currentSlide);
+      });
+
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+    }
+
+    function nextSlide(manual = false) {
+      if (manual) stopAutoPlay();
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlides();
+    }
+
+    function prevSlide(manual = false) {
+      if (manual) stopAutoPlay();
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlides();
+    }
+
+    function goToSlide(index, manual = false) {
+      if (manual) stopAutoPlay();
+      currentSlide = index;
+      updateSlides();
+    }
+
+    function stopAutoPlay() {
+      if (autoPlay) {
+        clearInterval(interval);
+        autoPlay = false;
+      }
+    }
+
+    nextBtn.addEventListener('click', () => nextSlide(true));
+    prevBtn.addEventListener('click', () => prevSlide(true));
+  </script>
+
+</body>
+</html>

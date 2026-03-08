@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contato | Sítio Santa Tereza</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #3a3a3a;
+      min-height: 100vh;
+      background: url('2.jpg') center/cover no-repeat fixed;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(6px);
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(34, 48, 36, 0.95);
+      backdrop-filter: blur(6px);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #f0e6d6;
+      text-decoration: none;
+      margin-left: 25px;
+      font-weight: 400;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #c8b08a;
+      transform: translateY(-2px);
+    }
+
+    nav a.active {
+      color: #c8b08a;
+      font-weight: 600;
+    }
+
+    main {
+      padding: 140px 6% 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 16px;
+      padding: 40px 50px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      max-width: 600px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #223024;
+    }
+
+    .contact-card p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+      color: #4a4a4a;
+    }
+
+    .whatsapp-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #2AB318;
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    }
+
+    .whatsapp-button img {
+      width: 22px;
+      height: 22px;
+    }
+
+    .whatsapp-button:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.4);
+      filter: brightness(1.05);
+    }
+
+    footer {
+      background-color: rgba(34, 48, 36, 0.95);
+      color: #e6ddcf;
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="index.html">Página principal</a>
+    <a href="terreno.html">Terreno</a>
+    <a href="casa.html">Casa</a>
+    <a href="animais.html">Animais</a>
+    <a href="como-chegar.html">Localização</a>
+    <a href="contato.html" class="active">Contato</a>
+  </nav>
+</header>
+
+<main>
+  <div class="contact-card">
+    <h2>Entre em contato</h2>
+    <p>
+      Ficou interessado no Sítio Santa Tereza ou deseja mais informações?  
+      Clique no botão abaixo e fale diretamente pelo WhatsApp.
+    </p>
+
+    <a 
+      href="https://wa.me/5532984183077?text=Ol%C3%A1.%20Estou%20interessado%20em%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20S%C3%ADtio%20Santa%20Tereza"
+      class="whatsapp-button"
+      target="_blank"
+    >
+      <img src="whatsapp.png" alt="WhatsApp">
+      Entrar em contato
+    </a>
+  </div>
+</main>
+
+<footer>
+  © 2026 — Sítio Santa Tereza. Todos os direitos reservados.
+</footer>
+
+</body>
+</html>

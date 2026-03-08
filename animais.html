@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Animais | Sítio Santa Tereza</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat',sans-serif;
+color:#3a3a3a;
+min-height:100vh;
+background:url('2.jpg') center/cover no-repeat fixed;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
+z-index:-1;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(34,48,36,0.95);
+backdrop-filter:blur(6px);
+padding:15px 40px;
+display:flex;
+justify-content:flex-end;
+align-items:center;
+z-index:1000;
+}
+
+nav a{
+color:#f0e6d6;
+text-decoration:none;
+margin-left:25px;
+font-weight:400;
+transition:all .3s ease;
+}
+
+nav a:hover{
+color:#c8b08a;
+transform:translateY(-2px);
+}
+
+nav a.active{
+color:#c8b08a;
+font-weight:600;
+}
+
+main{
+padding:140px 6% 80px;
+min-height:80vh;
+}
+
+.layout{
+display:grid;
+grid-template-columns:35% 65%;
+gap:40px;
+align-items:start;
+}
+
+.card{
+background:rgba(255,255,255,0.9);
+border-radius:16px;
+padding:28px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.card h3{
+font-family:'Playfair Display',serif;
+font-size:22px;
+margin-bottom:12px;
+color:#223024;
+}
+
+.card ul{
+list-style:disc;
+padding-left:20px;
+color:#4a4a4a;
+line-height:1.6;
+}
+
+.main-image{
+width:100%;
+border-radius:16px;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+transition:transform .3s ease;
+}
+
+.main-image:hover{
+transform:scale(1.02);
+}
+
+.gallery{
+margin-top:50px;
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:16px;
+}
+
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+}
+
+.gallery-item img{
+width:100%;
+height:160px;
+object-fit:cover;
+border-radius:12px;
+cursor:pointer;
+transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.05);
+box-shadow:0 8px 20px rgba(0,0,0,0.35);
+}
+
+.gallery-caption{
+position:absolute;
+bottom:0;
+width:100%;
+padding:6px 8px;
+font-size:12px;
+color:#f5f5f5;
+background:linear-gradient(transparent,rgba(0,0,0,0.65));
+opacity:0;
+transition:opacity .3s ease;
+}
+
+.gallery-item:hover .gallery-caption{
+opacity:1;
+}
+
+footer{
+background-color:rgba(34,48,36,0.95);
+color:#e6ddcf;
+text-align:center;
+padding:25px;
+font-size:14px;
+}
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.95);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+flex-direction:column;
+}
+
+.modal.active{
+display:flex;
+}
+
+.modal img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+}
+
+.modal-counter{
+position:absolute;
+top:25px;
+color:#fff;
+font-size:14px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.modal-caption{
+margin-top:15px;
+color:#eee;
+font-size:16px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.modal .arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:48px;
+color:#f0e6d6;
+cursor:pointer;
+user-select:none;
+padding:20px;
+}
+
+.modal .arrow.left{left:20px;}
+.modal .arrow.right{right:20px;}
+
+.modal .close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:32px;
+color:#f0e6d6;
+cursor:pointer;
+}
+
+.whatsapp-float{
+position:fixed;
+right:24px;
+bottom:24px;
+width:64px;
+height:64px;
+background:#2AB318;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.35);
+z-index:9999;
+transition:transform .3s ease,box-shadow .3s ease;
+}
+
+.whatsapp-float img{
+width:34px;
+height:34px;
+}
+
+.whatsapp-float:hover{
+transform:translateY(-6px) scale(1.05);
+box-shadow:0 14px 35px rgba(0,0,0,0.45);
+}
+
+@media (max-width:900px){
+.layout{grid-template-columns:1fr;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">Página principal</a>
+<a href="terreno.html">Terreno</a>
+<a href="casa.html">Casa</a>
+<a href="animais.html" class="active">Animais</a>
+<a href="como-chegar.html">Localização</a>
+<a href="contato.html">Contato</a>
+</nav>
+</header>
+
+<main>
+
+<div class="layout">
+
+<div class="card">
+<h3>Animais no Sítio</h3>
+<ul>
+<li>Criação de gado (50 vacas, 20 novilhas, 30-40 bezerros, 2 touros)</li>
+<li>Galinhas</li>
+<li>Estrutura para criação de porcos</li>
+<li>Pasto formado e cercado</li>
+<li>Estrutura de curral</li>
+<li>Água natural disponível para os animais</li>
+</ul>
+</div>
+
+<img src="g1.jpg" alt="Animais no sítio" class="main-image" onclick="openModal(0)">
+
+</div>
+
+<div class="gallery">
+<div class="gallery-item"><img src="g1.jpg" onclick="openModal(0)"><div class="gallery-caption">Gado</div></div>
+<div class="gallery-item"><img src="g2.jpg" onclick="openModal(1)"><div class="gallery-caption">Gado</div></div>
+<div class="gallery-item"><img src="g3.jpg" onclick="openModal(2)"><div class="gallery-caption">Gado</div></div>
+</div>
+
+</main>
+
+<footer>
+© 2026 — Sítio Santa Tereza. Todos os direitos reservados.
+</footer>
+
+<div class="modal" id="modal">
+
+<div class="modal-counter" id="modal-counter"></div>
+
+<span class="close" onclick="closeModal()">✕</span>
+<span class="arrow left" onclick="prevImage()">❮</span>
+<img id="modalImage" src="">
+<span class="arrow right" onclick="nextImage()">❯</span>
+
+<div class="modal-caption" id="modal-caption"></div>
+
+</div>
+
+<a 
+href="https://wa.me/5532984183077?text=Ol%C3%A1.%20Estou%20interessado%20em%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20S%C3%ADtio%20Santa%20Tereza"
+class="whatsapp-float"
+target="_blank"
+aria-label="Falar no WhatsApp"
+>
+<img src="whatsapp.png" alt="WhatsApp">
+</a>
+
+<script>
+
+const images=['g1.jpg','g2.jpg','g3.jpg'];
+
+const captions=[
+"Gado",
+"Gado",
+"Gado"
+];
+
+let current=0;
+
+function updateModal(){
+document.getElementById('modalImage').src=images[current];
+document.getElementById('modal-counter').textContent=
+"Foto "+(current+1)+" de "+images.length;
+document.getElementById('modal-caption').textContent=captions[current];
+}
+
+function openModal(index){
+current=index;
+document.getElementById('modal').classList.add('active');
+updateModal();
+}
+
+function closeModal(){
+document.getElementById('modal').classList.remove('active');
+}
+
+function nextImage(){
+current=(current+1)%images.length;
+updateModal();
+}
+
+function prevImage(){
+current=(current-1+images.length)%images.length;
+updateModal();
+}
+
+document.addEventListener('keydown',function(e){
+const modal=document.getElementById('modal');
+if(!modal.classList.contains('active'))return;
+
+if(e.key==="ArrowRight")nextImage();
+if(e.key==="ArrowLeft")prevImage();
+if(e.key==="Escape")closeModal();
+});
+
+</script>
+
+</body>
+</html>

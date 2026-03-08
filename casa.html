@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Casa | Sítio Santa Tereza</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat',sans-serif;
+color:#3a3a3a;
+min-height:100vh;
+background:url('c1.jpg') center/cover no-repeat fixed;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
+z-index:-1;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(34,48,36,0.95);
+backdrop-filter:blur(6px);
+padding:15px 40px;
+display:flex;
+justify-content:flex-end;
+align-items:center;
+z-index:1000;
+}
+
+nav a{
+color:#f0e6d6;
+text-decoration:none;
+margin-left:25px;
+font-weight:400;
+transition:all .3s ease;
+}
+
+nav a:hover{
+color:#c8b08a;
+transform:translateY(-2px);
+}
+
+main{
+padding:140px 6% 80px;
+min-height:80vh;
+}
+
+.top-section{
+display:grid;
+grid-template-columns:35% 65%;
+gap:30px;
+margin-bottom:40px;
+}
+
+.info-box{
+background:rgba(255,255,255,0.9);
+border-radius:16px;
+padding:28px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.info-box h3{
+font-family:'Playfair Display',serif;
+margin-bottom:12px;
+font-size:22px;
+color:#223024;
+}
+
+.info-box ul{
+padding-left:18px;
+line-height:1.7;
+color:#4a4a4a;
+}
+
+.media-box{
+border-radius:16px;
+overflow:hidden;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.media-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:16px;
+}
+
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+}
+
+.gallery-item img{
+width:100%;
+height:130px;
+object-fit:cover;
+display:block;
+cursor:pointer;
+transition:transform .3s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.05);
+}
+
+.gallery-caption{
+position:absolute;
+bottom:0;
+width:100%;
+padding:6px 8px;
+font-size:12px;
+color:#f5f5f5;
+background:linear-gradient(transparent,rgba(0,0,0,0.65));
+opacity:0;
+transition:opacity .3s ease;
+}
+
+.gallery-item:hover .gallery-caption{
+opacity:1;
+}
+
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+flex-direction:column;
+}
+
+.lightbox.active{
+display:flex;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+}
+
+.lightbox-counter{
+position:absolute;
+top:25px;
+color:#fff;
+font-size:14px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.lightbox-caption{
+margin-top:15px;
+color:#eee;
+font-size:16px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.nav-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+color:#fff;
+cursor:pointer;
+padding:20px;
+user-select:none;
+}
+
+.nav-btn.prev{left:20px;}
+.nav-btn.next{right:20px;}
+
+footer{
+background-color:rgba(34,48,36,0.95);
+color:#e6ddcf;
+text-align:center;
+padding:25px;
+font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">Página principal</a>
+<a href="terreno.html">Terreno</a>
+<a href="casa.html">Casa</a>
+<a href="animais.html">Animais</a>
+<a href="como-chegar.html">Localização</a>
+<a href="contato.html">Contato</a>
+</nav>
+</header>
+
+<main>
+
+<section class="top-section">
+
+<div class="info-box">
+<h3>Informações da Casa</h3>
+<ul>
+<li>4 quartos, todos com piso em tábua corrida</li>
+<li>2 banheiros</li>
+<li>2 varandas, sendo uma com fogão a lenha</li>
+<li>Cozinha ampla</li>
+<li>Copa</li>
+<li>Sala</li>
+<li>Área de serviço</li>
+<li>Garagem coberta para 2 carros</li>
+</ul>
+</div>
+
+<div class="media-box" onclick="openLightbox(0)">
+<img src="c1.jpg" alt="Casa - imagem principal">
+</div>
+
+</section>
+
+<section class="gallery">
+
+<div class="gallery-item"><img src="c1.jpg" onclick="openLightbox(0)"><div class="gallery-caption">Casa e garagem coberta</div></div>
+<div class="gallery-item"><img src="c2.jpg" onclick="openLightbox(1)"><div class="gallery-caption">Entrada</div></div>
+<div class="gallery-item"><img src="c3.jpg" onclick="openLightbox(2)"><div class="gallery-caption">Varanda com fogão a lenha</div></div>
+<div class="gallery-item"><img src="c4.jpg" onclick="openLightbox(3)"><div class="gallery-caption">Varanda com fogão a lenha</div></div>
+<div class="gallery-item"><img src="c5.jpg" onclick="openLightbox(4)"><div class="gallery-caption">Fogão a lenha</div></div>
+<div class="gallery-item"><img src="c6.jpg" onclick="openLightbox(5)"><div class="gallery-caption">Garagem coberta</div></div>
+<div class="gallery-item"><img src="c7.jpg" onclick="openLightbox(6)"><div class="gallery-caption">Área de serviço</div></div>
+<div class="gallery-item"><img src="c8.jpg" onclick="openLightbox(7)"><div class="gallery-caption">Quarto 1</div></div>
+<div class="gallery-item"><img src="c9.jpg" onclick="openLightbox(8)"><div class="gallery-caption">Quarto 1</div></div>
+<div class="gallery-item"><img src="c10.jpg" onclick="openLightbox(9)"><div class="gallery-caption">Quarto 2</div></div>
+<div class="gallery-item"><img src="c11.jpg" onclick="openLightbox(10)"><div class="gallery-caption">Banheiro 1</div></div>
+<div class="gallery-item"><img src="c12.jpg" onclick="openLightbox(11)"><div class="gallery-caption">Copa</div></div>
+<div class="gallery-item"><img src="c13.jpg" onclick="openLightbox(12)"><div class="gallery-caption">Copa</div></div>
+<div class="gallery-item"><img src="c14.jpg" onclick="openLightbox(13)"><div class="gallery-caption">Banheiro 2</div></div>
+
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+
+<div class="lightbox-counter" id="lightbox-counter"></div>
+
+<span class="nav-btn prev" onclick="prevImage()">‹</span>
+<img id="lightbox-img" src="">
+<span class="nav-btn next" onclick="nextImage()">›</span>
+
+<div class="lightbox-caption" id="lightbox-caption"></div>
+
+</div>
+
+<footer>
+© 2026 — Sítio Santa Tereza. Todos os direitos reservados.
+</footer>
+
+<script>
+
+const images=[
+"c1.jpg","c2.jpg","c3.jpg","c4.jpg","c5.jpg","c6.jpg","c7.jpg",
+"c8.jpg","c9.jpg","c10.jpg","c11.jpg","c12.jpg","c13.jpg","c14.jpg"
+];
+
+const captions=[
+"Casa e garagem coberta",
+"Entrada",
+"Varanda com fogão a lenha",
+"Varanda com fogão a lenha",
+"Fogão a lenha",
+"Garagem coberta",
+"Área de serviço",
+"Quarto 1",
+"Quarto 1",
+"Quarto 2",
+"Banheiro 1",
+"Copa",
+"Copa",
+"Banheiro 2"
+];
+
+let currentIndex=0;
+
+function updateLightbox(){
+document.getElementById("lightbox-img").src=images[currentIndex];
+document.getElementById("lightbox-counter").textContent=
+"Foto "+(currentIndex+1)+" de "+images.length;
+document.getElementById("lightbox-caption").textContent=captions[currentIndex];
+}
+
+function openLightbox(index){
+currentIndex=index;
+document.getElementById("lightbox").classList.add("active");
+updateLightbox();
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").classList.remove("active");
+}
+
+function nextImage(){
+currentIndex=(currentIndex+1)%images.length;
+updateLightbox();
+}
+
+function prevImage(){
+currentIndex=(currentIndex-1+images.length)%images.length;
+updateLightbox();
+}
+
+document.getElementById("lightbox").addEventListener("click",function(e){
+if(e.target===this)closeLightbox();
+});
+
+document.addEventListener("keydown",function(e){
+const lightbox=document.getElementById("lightbox");
+if(!lightbox.classList.contains("active"))return;
+
+if(e.key==="ArrowRight")nextImage();
+if(e.key==="ArrowLeft")prevImage();
+if(e.key==="Escape")closeLightbox();
+});
+
+</script>
+
+</body>
+</html>

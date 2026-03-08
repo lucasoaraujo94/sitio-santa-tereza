@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Terreno | Sítio Santa Tereza</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+font-family:'Montserrat',sans-serif;
+color:#3a3a3a;
+min-height:100vh;
+background:url('2.jpg') center/cover no-repeat fixed;
+position:relative;
+}
+
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.45);
+backdrop-filter:blur(6px);
+z-index:-1;
+}
+
+header{
+position:fixed;
+top:0;
+width:100%;
+background:rgba(34,48,36,0.95);
+backdrop-filter:blur(6px);
+padding:15px 40px;
+display:flex;
+justify-content:flex-end;
+align-items:center;
+z-index:1000;
+}
+
+nav a{
+color:#f0e6d6;
+text-decoration:none;
+margin-left:25px;
+font-weight:400;
+transition:all .3s ease;
+}
+
+nav a:hover{
+color:#c8b08a;
+transform:translateY(-2px);
+}
+
+main{
+padding:140px 6% 80px;
+min-height:80vh;
+}
+
+.top-section{
+display:grid;
+grid-template-columns:35% 65%;
+gap:30px;
+margin-bottom:40px;
+}
+
+.info-box{
+background:rgba(255,255,255,0.9);
+border-radius:16px;
+padding:28px;
+box-shadow:0 10px 30px rgba(0,0,0,0.25);
+}
+
+.info-box h3{
+font-family:'Playfair Display',serif;
+margin-bottom:12px;
+font-size:22px;
+color:#223024;
+}
+
+.info-box ul{
+padding-left:18px;
+line-height:1.7;
+color:#4a4a4a;
+}
+
+.media-box{
+border-radius:16px;
+overflow:hidden;
+cursor:pointer;
+box-shadow:0 10px 30px rgba(0,0,0,0.35);
+}
+
+.media-box iframe{
+width:100%;
+height:100%;
+min-height:420px;
+border:none;
+display:block;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+gap:16px;
+}
+
+.gallery-item{
+position:relative;
+overflow:hidden;
+border-radius:12px;
+}
+
+.gallery-item img{
+width:100%;
+height:130px;
+object-fit:cover;
+display:block;
+cursor:pointer;
+transition:transform .3s ease;
+}
+
+.gallery-item:hover img{
+transform:scale(1.05);
+}
+
+.gallery-caption{
+position:absolute;
+bottom:0;
+width:100%;
+padding:6px 8px;
+font-size:12px;
+color:#f5f5f5;
+background:linear-gradient(transparent,rgba(0,0,0,0.65));
+opacity:0;
+transition:opacity .3s ease;
+}
+
+.gallery-item:hover .gallery-caption{
+opacity:1;
+}
+
+.lightbox{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.9);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:9999;
+flex-direction:column;
+}
+
+.lightbox.active{
+display:flex;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+border-radius:12px;
+}
+
+.lightbox-counter{
+position:absolute;
+top:25px;
+color:#fff;
+font-size:14px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.lightbox-caption{
+margin-top:15px;
+color:#eee;
+font-size:16px;
+font-family:'Montserrat',sans-serif;
+opacity:.9;
+}
+
+.nav-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+color:#fff;
+cursor:pointer;
+padding:20px;
+user-select:none;
+}
+
+.nav-btn.prev{left:20px;}
+.nav-btn.next{right:20px;}
+
+footer{
+background-color:rgba(34,48,36,0.95);
+color:#e6ddcf;
+text-align:center;
+padding:25px;
+font-size:14px;
+}
+
+.whatsapp-float{
+position:fixed;
+right:24px;
+bottom:24px;
+width:64px;
+height:64px;
+background:#2AB318;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+box-shadow:0 10px 25px rgba(0,0,0,.35);
+z-index:9999;
+}
+
+.whatsapp-float img{
+width:34px;
+height:34px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<a href="index.html">Página principal</a>
+<a href="terreno.html">Terreno</a>
+<a href="casa.html">Casa</a>
+<a href="animais.html">Animais</a>
+<a href="como-chegar.html">Localização</a>
+<a href="contato.html">Contato</a>
+</nav>
+</header>
+
+<main>
+
+<section class="top-section">
+
+<div class="info-box">
+<h3>Informações do Terreno</h3>
+<ul>
+<li>28 alqueires de pasto formado (capim braquiária)</li>
+<li>Terreno totalmente cercado</li>
+<li>3 tanques e 3 nascentes</li>
+<li>Rio dentro do terreno</li>
+<li>Estrada passando pelo terreno</li>
+<li>Luz instalada: 15 kVA</li>
+<li>Antena no terreno (gera renda após x anos)</li>
+<li>Balança de gado nova (Valfran)</li>
+<li>Máquina de moer milho</li>
+<li>Pomar diverso: acerola, graviola, uva, coco, manga, laranja, limão, entre outros</li>
+<li>Curral e paiol</li>
+</ul>
+</div>
+
+<div class="media-box">
+<iframe
+width="100%"
+height="100%"
+src="https://www.youtube.com/embed/3MVWKDo3W58?autoplay=1&mute=1&loop=1&playlist=3MVWKDo3W58&controls=0&modestbranding=1"
+title="Vídeo do terreno"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+
+
+</section>
+
+<section class="gallery">
+
+<div class="gallery-item"><img src="1.jpg" onclick="openLightbox(0)"><div class="gallery-caption">Rio no terreno</div></div>
+<div class="gallery-item"><img src="2.jpg" onclick="openLightbox(1)"><div class="gallery-caption">Casa e curral</div></div>
+<div class="gallery-item"><img src="3.jpg" onclick="openLightbox(2)"><div class="gallery-caption">Ampla área de pasto</div></div>
+<div class="gallery-item"><img src="4.jpg" onclick="openLightbox(3)"><div class="gallery-caption">Área aberta do terreno</div></div>
+<div class="gallery-item"><img src="5.jpg" onclick="openLightbox(4)"><div class="gallery-caption">Vista da propriedade</div></div>
+<div class="gallery-item"><img src="6.jpg" onclick="openLightbox(5)"><div class="gallery-caption">Estrada interna</div></div>
+<div class="gallery-item"><img src="7.jpg" onclick="openLightbox(6)"><div class="gallery-caption">Área de pasto</div></div>
+<div class="gallery-item"><img src="8.jpg" onclick="openLightbox(7)"><div class="gallery-caption">Área de pasto</div></div>
+<div class="gallery-item"><img src="9.jpg" onclick="openLightbox(8)"><div class="gallery-caption">Pasto formado</div></div>
+<div class="gallery-item"><img src="10.jpg" onclick="openLightbox(9)"><div class="gallery-caption">Pasto formado</div></div>
+<div class="gallery-item"><img src="11.jpg" onclick="openLightbox(10)"><div class="gallery-caption">Vista ampla do sítio</div></div>
+<div class="gallery-item"><img src="12.jpg" onclick="openLightbox(11)"><div class="gallery-caption">Tanques na propriedade</div></div>
+<div class="gallery-item"><img src="13.jpg" onclick="openLightbox(12)"><div class="gallery-caption">Tanque 1</div></div>
+<div class="gallery-item"><img src="14.jpg" onclick="openLightbox(13)"><div class="gallery-caption">Tanque 1</div></div>
+<div class="gallery-item"><img src="15.jpg" onclick="openLightbox(14)"><div class="gallery-caption">Tanque 2</div></div>
+<div class="gallery-item"><img src="16.jpg" onclick="openLightbox(15)"><div class="gallery-caption">Balança Valfran nova</div></div>
+<div class="gallery-item"><img src="17.jpg" onclick="openLightbox(16)"><div class="gallery-caption">Paiol</div></div>
+<div class="gallery-item"><img src="18.jpg" onclick="openLightbox(17)"><div class="gallery-caption">Carga e descarga de animais na balança</div></div>
+<div class="gallery-item"><img src="19.jpg" onclick="openLightbox(18)"><div class="gallery-caption">Entrada</div></div>
+<div class="gallery-item"><img src="20.jpg" onclick="openLightbox(19)"><div class="gallery-caption">Curral</div></div>
+<div class="gallery-item"><img src="21.jpg" onclick="openLightbox(20)"><div class="gallery-caption">Curral</div></div>
+<div class="gallery-item"><img src="22.jpg" onclick="openLightbox(21)"><div class="gallery-caption">Máquina de moer milho</div></div>
+
+</section>
+
+</main>
+
+<div class="lightbox" id="lightbox">
+<div class="lightbox-counter" id="lightbox-counter"></div>
+<span class="nav-btn prev" onclick="prevImage()">‹</span>
+<img id="lightbox-img" src="">
+<span class="nav-btn next" onclick="nextImage()">›</span>
+<div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
+<footer>
+© 2026 — Sítio Santa Tereza. Todos os direitos reservados.
+</footer>
+
+<a href="https://wa.me/5532984183077?text=Ol%C3%A1.%20Estou%20interessado%20em%20saber%20mais%20informa%C3%A7%C3%B5es%20sobre%20o%20S%C3%ADtio%20Santa%20Tereza"
+class="whatsapp-float"
+target="_blank">
+<img src="whatsapp.png" alt="WhatsApp">
+</a>
+
+<script>
+
+const images=[
+"1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg","10.jpg",
+"11.jpg","12.jpg","13.jpg","14.jpg","15.jpg","16.jpg","17.jpg","18.jpg","19.jpg","20.jpg",
+"21.jpg","22.jpg"
+];
+
+const captions=[
+"Rio no terreno",
+"Casa e curral",
+"Ampla área de pasto",
+"Área aberta do terreno",
+"Vista da propriedade",
+"Estrada interna",
+"Área de pasto",
+"Área de pasto",
+"Pasto formado",
+"Pasto formado",
+"Vista ampla do sítio",
+"Tanques na propriedade",
+"Tanque 1",
+"Tanque 1",
+"Tanque 2",
+"Balança Valfran nova",
+"Paiol",
+"Carga e descarga de animais na balança",
+"Entrada",
+"Curral",
+"Curral",
+"Máquina de moer milho"
+];
+
+let currentIndex=0;
+
+function updateLightbox(){
+document.getElementById("lightbox-img").src=images[currentIndex];
+document.getElementById("lightbox-counter").textContent=
+"Foto "+(currentIndex+1)+" de "+images.length;
+document.getElementById("lightbox-caption").textContent=captions[currentIndex];
+}
+
+function openLightbox(index){
+currentIndex=index;
+document.getElementById("lightbox").classList.add("active");
+updateLightbox();
+}
+
+function closeLightbox(){
+document.getElementById("lightbox").classList.remove("active");
+}
+
+function nextImage(){
+currentIndex=(currentIndex+1)%images.length;
+updateLightbox();
+}
+
+function prevImage(){
+currentIndex=(currentIndex-1+images.length)%images.length;
+updateLightbox();
+}
+
+document.getElementById("lightbox").addEventListener("click",function(e){
+if(e.target===this)closeLightbox();
+});
+
+document.addEventListener("keydown",function(e){
+const lightbox=document.getElementById("lightbox");
+if(!lightbox.classList.contains("active"))return;
+
+if(e.key==="ArrowRight")nextImage();
+if(e.key==="ArrowLeft")prevImage();
+if(e.key==="Escape")closeLightbox();
+});
+
+</script>
+
+</body>
+</html>
